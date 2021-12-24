@@ -220,7 +220,28 @@ def user_stats(df,city):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
-    print("\nThanks For Exploring this BIke Share data. More coming Soon on our web app.")
+
+
+def display_data(df):
+
+    """ This displays the first five rows of the selected dataset
+
+    Asks the user to type in yes or no"""
+
+    while True:
+        response=['yes','no']
+        choice= input("\n Would you like to view raw individual trip data ( for 5 entries)? Type 'yes' or 'no'\n").lower()
+        if choice in response:
+            if choice=='yes':
+                start=0
+                end=5
+                data = df.iloc[start:end,:9]
+                print("\n fetching preview of dataset...........")
+                print(data)
+            break     
+        else:
+            print("Please enter a valid response 'yes' or NO ")
+
 
 
 def main():
